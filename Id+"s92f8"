@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HTML AI Teacher</title>
+
+<style>
+body{
+font-family: Arial;
+background:#111;
+color:white;
+text-align:center;
+padding:40px;
+}
+
+#chatbox{
+width:80%;
+max-width:600px;
+margin:auto;
+padding:20px;
+background:#222;
+border-radius:10px;
+min-height:150px;
+}
+
+input{
+width:60%;
+padding:10px;
+margin-top:10px;
+}
+
+button{
+padding:10px;
+cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>HTML AI</h1>
+<p>Ask questions about HTML or how this website was made!</p>
+
+<div id="chatbox">
+<p id="response">Hello! I'm your HTML AI teacher. Ask me something!</p>
+</div>
+
+<input id="userInput" placeholder="Ask about HTML...">
+<button onclick="talkAI()">Ask AI</button>
+
+<script>
+
+function talkAI(){
+
+let input = document.getElementById("userInput").value.toLowerCase();
+let response = "";
+
+if(input.includes("html")){
+response = "HTML stands for Hyper Text Markup Language. It creates the structure of websites.";
+}
+
+else if(input.includes("how this website was made")){
+response = "This website is made using HTML for structure, CSS for design, and JavaScript for the AI responses and voice.";
+}
+
+else if(input.includes("css")){
+response = "CSS stands for Cascading Style Sheets. It controls colors, layout, and design.";
+}
+
+else if(input.includes("javascript")){
+response = "JavaScript makes websites interactive. It powers this AI response system.";
+}
+
+else{
+response = "Try asking about HTML, CSS, JavaScript, or how this website works.";
+}
+
+document.getElementById("response").innerText = response;
+
+let speech = new SpeechSynthesisUtterance(response);
+speechSynthesis.speak(speech);
+
+}
+
+</script>
+
+</body>
+</html>
